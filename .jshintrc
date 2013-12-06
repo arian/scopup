@@ -1,0 +1,8 @@
+{
+  "node": true,
+  "boss": true,
+  "globals": {
+    "it": true,
+    "describe": true
+  }
+}

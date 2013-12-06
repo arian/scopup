@@ -1,0 +1,22 @@
+{
+  "name": "scopup",
+  "version": "0.0.0",
+  "description": "Scope analysis of an Mozilla Parser AST (from esprima)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "ast",
+    "scope",
+    "analysis",
+    "esprima"
+  ],
+  "author": "Arian Stolwijk",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "esprima": "~1.0.4",
+    "expect.js": "~0.2.0",
+    "mocha": "~1.15.1"
+  }
+}
