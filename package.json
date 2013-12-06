@@ -2,9 +2,13 @@
   "name": "scopup",
   "version": "0.0.0",
   "description": "Scope analysis of an Mozilla Parser AST (from esprima)",
-  "main": "index.js",
+  "main": "lib/scopup.js",
   "scripts": {
     "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arian/scopup.git"
   },
   "keywords": [
     "ast",
