@@ -51,8 +51,8 @@ As you can see, the variables refer to a path in the AST.  Using
 looked up.
 
 
-`scopup`
-------
+`scopup(ast)`
+-------------
 
 The `scopup` function returns an object with as keys the containing scope. The
 values are objects with `vars` and `parents` properties. The vars is an object
@@ -68,21 +68,21 @@ var scopes = {
 };
 ```
 
-`scopup.resolve`
-----------------
+`scopup.resolve(scopes)`
+------------------------
 
 Resolves the variables in parent scopes. For example the variables outside a
 function are visible inside the function as well, if they are not overwritten
 by local variables.
 
-`scopup.annotate`
------------------
+`scopup.annotate(ast, resolved)`
+--------------------------------
 
 Annotates the AST with a `scopeVars` property. It's an object of variables
 visible inside this scope, with paths to the definition site.
 
-`scopup.findNode`
------------------
+`scopup.findNode(ast, path)`
+----------------------------
 
 Scopup uses paths in the AST object to refer to definition sites of variables
 and containing scopes.  Using `scopup.findNode` the specific node is fetched
