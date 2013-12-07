@@ -5,6 +5,11 @@ Scopup
 
 Scope analysis for JavaScript, using Mozilla Parser AST (used by esprima and acorn).
 
+Install
+-------
+
+  npm install scopup
+
 Example
 -------
 
