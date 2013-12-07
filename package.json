@@ -1,6 +1,6 @@
 {
   "name": "scopup",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Scope analysis of an Mozilla Parser AST (from esprima)",
   "main": "lib/scopup.js",
   "scripts": {
