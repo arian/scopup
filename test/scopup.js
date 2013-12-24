@@ -1,20 +1,8 @@
 "use strict";
 
 var expect = require('expect.js');
-var read = require('./util/readAST');
+var testScopes = require('./util/testScopes');
 var scopup = require('../lib/scopup');
-
-function testScopes(file, test) {
-  return function(done) {
-    read(__dirname + '/fixtures/' + file + '.js', function(err, ast){
-      if (err) return done(err);
-      var scopes = scopup(ast);
-      test(scopes);
-      done();
-    });
-
-  };
-}
 
 describe('scopup', function() {
 
@@ -90,41 +78,6 @@ describe('scopup', function() {
         y: 'body.1.declarations.0.init.body.body.0.declarations.0.init.body.body.0.declarations.0'
       });
     }));
-
-  });
-
-  describe('resolve', function() {
-
-    it('should resolve variables in a certain scope', testScopes('f', function(scopes){
-      var resolved = scopup.resolve(scopes);
-      expect(resolved['body.1.declarations.0.init.body.body.0.declarations.0.init']).to.eql({
-        x: 'body.0.declarations.0',
-        z: 'body.1.declarations.0.init.body.body.0.declarations.0.init.params.0',
-        y: 'body.1.declarations.0.init.body.body.0.declarations.0.init.body.body.0.declarations.0'
-      });
-    }));
-
-  });
-
-  describe('annotate', function() {
-
-    it('should annotate the original AST with "scopeVars" objects', function(done) {
-      read(__dirname + '/fixtures/f.js', function(err, ast) {
-        if (err) return done(err);
-        scopup.annotate(ast);
-        expect(ast.scopeVars).to.eql({
-          x: 'body.0.declarations.0',
-          y: 'body.1.declarations.0'
-        });
-        var node = ast.body[1].declarations[0].init.body.body[0].declarations[0].init;
-        expect(node.scopeVars).to.eql({
-          x: 'body.0.declarations.0',
-          z: 'body.1.declarations.0.init.body.body.0.declarations.0.init.params.0',
-          y: 'body.1.declarations.0.init.body.body.0.declarations.0.init.body.body.0.declarations.0'
-        });
-        done();
-      });
-    });
 
   });
 
